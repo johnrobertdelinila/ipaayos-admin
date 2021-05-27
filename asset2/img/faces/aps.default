@@ -1,0 +1,538 @@
+<head>
+
+   <script src="https://cdn.tiny.cloud/1/ajy8m1nttflwk2bzbzbjpj10ltxdqtecky2tgfps0r65wvqm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector:'#termchange'});</script>
+    <script>tinymce.init({selector:'#privacychange'});</script>
+    <script>tinymce.init({selector:'#registerchange'});</script>
+    <script>tinymce.init({selector:'#forgetchange'});</script>
+
+</head>
+
+<div class="content">
+    <div class="content-wrapper">
+        <div class="container">
+            <?php if ($this->session->flashdata('msg')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Firebase key changed changed successfully.
+                </div>
+            <?php } ?>
+            <?php if ($this->session->flashdata('razormsg')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Razorpay setting changed successfully.
+                </div>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msg1')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Stripe key changed successfully.
+                </div>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msgpay')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Paypal details changed successfully.
+                </div>
+                <br>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msgsmtp')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    SMTP setting changed successfully.
+                </div>
+                <br>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msgref')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Referral setting changed successfully.
+                </div>
+                <br>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msgterm')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Term setting changed successfully.
+                </div>
+                <br>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msgprivacy')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Privacy setting changed successfully.
+                </div>
+                <br>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msgregister')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Register email setting changed successfully.
+                </div>
+                <br>
+            <?php } ?>
+            <?php if ($this->session->flashdata('msgforgetpassword')) { ?>
+                <div id="mydiv" class="alert alert-success"><?= $this->session->flashdata('category_success') ?>
+                    Forget Password email setting changed successfully.
+                </div>
+                <br>
+            <?php } ?>
+
+              <style>
+
+    @media only screen and (max-width: 480px) {
+	.content iframe {
+		display: none;
+	}
+}
+
+
+.product-price {
+  position: absolute;
+  background: #11e95b;
+  padding: 7px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 200;
+  color: #fff;
+  border-radius: 7px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
+}
+
+
+
+</style>
+            <div class="card card-nav-tabs">
+                <div class="card-header card-header-primary">
+                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#profile" data-toggle="tab">
+                                        <i class="material-icons">face</i>
+                                        Firebase Key
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#messages" data-toggle="tab">
+                                        <i class="material-icons">chat</i>
+                                        Paypal
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#razor" data-toggle="tab">
+                                        <i class="material-icons">chat</i>
+                                        Razorpay
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#stripe" data-toggle="tab">
+                                    <i class="material-icons">chat</i>
+                                    Stripe
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#smtp" data-toggle="tab">
+                                        <i class="material-icons">settings</i>
+                                        SMTP Setting
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#term" data-toggle="tab">
+                                        <i class="material-icons">create</i>
+                                        Term Setting
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#privacy" data-toggle="tab">
+                                        <i class="material-icons">privacy_tip</i>
+                                        Privacy Setting
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#register" data-toggle="tab">
+                                        <i class="material-icons">email</i>
+                                        Register Setting
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#forgetpassword" data-toggle="tab">
+                                        <i class="material-icons">password</i>
+                                        Forget Password Setting
+                                    </a>
+                                </li>
+                               <!-- <li class="nav-item">
+                                   <a class="nav-link" href="#referal" data-toggle="tab">
+                                     <i class="material-icons">settings</i>
+                                     Refferal Setting
+                                   </a>
+                                 </li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <div class="tab-content text-center">
+                        <div class="tab-pane" id="referal">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/referral_setting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Give Credits</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="radio" name="type" value="1" onclick="show2();"" <?php
+                                            if ($referral_setting->type == 1) {
+                                                echo "checked";
+                                            }
+                                            ?> >Yes
+                                            &nbsp;
+                                            <input type="radio" name="type" value="0" <?php
+                                            if ($referral_setting->type == 0) {
+                                                echo "checked";
+                                            }
+                                            ?> onclick="show1();">No
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">No. of Usage</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" value="<?php echo $referral_setting->no_of_usages; ?>" name="no_of_usages" required="" placeholder="Enter Key">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Flat Amount Credit</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" value="<?php echo $referral_setting->amount; ?>" name="amount" required="" placeholder="Enter Key">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p class="float-left"><b>Note</b> : If total number of user increase with this count so, automatically this credit goes to respective wallet. It's kind of referral system. </p>
+                                <div style="clear:both;"></div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="razor">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/razorSetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Key ID</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="<?php echo $razor_setting->keyId; ?>" name="keyId" required="" placeholder="Enter Key ID">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Key Secret</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="<?php echo $razor_setting->keySecret; ?>" name="keyId" required="" placeholder="Enter Secret Key">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Currency</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="<?php echo $razor_setting->displayCurrency; ?>" name="displayCurrency" required="" placeholder="Enter Currency">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div style="clear:both"></div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="smtp">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/smtpSetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">URL</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="<?php echo $smtp_setting->url; ?>" name="url" type="hiden" required="" placeholder="Enter url">
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">Port</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="<?php echo $smtp_setting->port; ?>" name="port" type="hiden" required="" placeholder="Enter Port">
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">From</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="<?php echo $smtp_setting->set_from; ?>" name="set_from" type="hiden" required="" placeholder="Enter From">
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">Email</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="<?php echo $smtp_setting->email_id; ?>" name="email_id" required="" placeholder="Enter email">
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">Password</label>
+                                        <!--   -->
+                                        <div class="col-md-9">
+                                            <input type="password" class="form-control" value="<?php echo $smtp_setting->password; ?>" name="password" type="hiden" required="" placeholder="Enter password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                               <!--<p class="float-left"><b><u>NOTE</u>: You should need to change your SMTP setting of your gmail account. Please check to <a href="#" target="_blank"> click here</a></b></p>-->
+                                <div style="clear:both"></div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="term">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/termsSetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Term Setting</label>
+                                        <!--   -->
+                                        <div class="col-md-12">
+                                            <textarea id="termchange" type="text" class="form-control" rows="60" name="terms" required="" placeholder="Enter Terms" style="border: solid #9127ac 3px; border-radius: 25px; padding: 15px; background-color: #dedede;"><?php echo $term_setting->terms; ?></textarea>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <!--<p class="float-left"><b><u>NOTE</u>: You should need to change your SMTP setting of your gmail account. Please check to <a href="#" target="_blank"> click here</a></b></p>-->
+                                <div style="clear:both"></div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="privacy">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/privacySetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Privacy Setting</label>
+                                        <!--   -->
+                                        <div class="col-md-12">
+                                            <textarea id="privacychange" type="text" class="form-control" rows="60" name="privacy" required="" placeholder="Enter Privacy" style="border: solid #d63529 3px; border-radius: 25px; padding: 15px; background-color: #dedede;"><?php echo $privacy_setting->privacy; ?></textarea>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div style="clear:both"></div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="register">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/registerSetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Register mail Setting</label>
+                                        <!--   -->
+                                        <div class="col-md-12">
+                                            <textarea id="registerchange" type="text" class="form-control" rows="20" name="register" required="" placeholder="Enter register mail" style="border: solid #3486eb 3px; border-radius: 25px; padding: 15px; background-color: #dedede;"><?php echo $mail_setting->register; ?></textarea>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div style="clear:both"></div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="forgetpassword">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/forgetpasswordSetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Forget password mail Setting</label>
+                                        <!--   -->
+                                        <div class="col-md-12">
+                                            <textarea id="forgetchange" type="text" class="form-control" rows="20" name="forgetpassword" required="" placeholder="Enter register mail" style="border: solid #34eb6b 3px; border-radius: 25px; padding: 15px; background-color: #dedede;"><?php echo $forgetpassword_setting->forgetpassword; ?></textarea>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div style="clear:both"></div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane active" id="profile">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/firebaseSetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Enter Firebase Key </label>
+                                        <!--   -->
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" rows="5" name="artist_key" required="" placeholder="Enter Key"><?php echo $firebase_setting->artist_key; ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Confrim Firebase Key </label>
+                                        <!--   -->
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" rows="5" name="customer_key" required="" placeholder="Enter Key"><?php echo $firebase_setting->customer_key; ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="float-left">
+                                    <button class="btn btn-success">Submit</button>
+
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="messages">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/paySetting', $attributes);
+                            ?>
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Name</label>
+                                        <!--   -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="<?php echo $paypal_setting->name; ?>" name="name" required="" placeholder="Enter Key">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Paypal Username</label>
+                                        <!--   -->
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="<?php echo $paypal_setting->paypal_id; ?>" name="paypal_id" required="" placeholder="Enter Key">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <label class="col-sm-3 col-form-label">Account Type</label>
+                                        <!--   -->
+                                        <div class="col-sm-9">
+                                            <input type="radio" name="type" value="1" <?php
+                                            if ($paypal_setting->type == 1) {
+                                                echo "checked";
+                                            }
+                                            ?>>
+                                            Sendbox
+                                            &nbsp;
+                                            <input type="radio" name="type" value="0" <?php
+                                            if ($paypal_setting->type == 0) {
+                                                echo "checked";
+                                            }
+                                            ?>>Live
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="float-left">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="stripe">
+                            <?php
+                            $attributes = array('id' => 'form_validation', 'name' => 'add_coupon', 'class' => 'form-sample');
+                            echo form_open_multipart('Admin/StripSetting', $attributes);
+                            ?>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <label class="col-sm-3 col-form-label">API Key</label>
+                                    <!--   -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="<?php echo $stripe_keys->api_key; ?>" name="api_key" required="" placeholder="Enter Key">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <label class="col-sm-3 col-form-label">Publishable Key</label>
+                                    <!--   -->
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="<?php echo $stripe_keys->publishable_key; ?>" name="publishable_key" required="" placeholder="Enter Key">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="float-left">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                         <br>
+                          <br>
+                           <br>
+                           <br>
+
+
+                        </form>
+
+                                                   <br>
+
+                        <div class="input-group">
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,1 @@
+[13-Dec-2020 06:57:12 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/vop5awh7iwmm/public_html/groceryone.salepe.in/system/database/DB.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/vop5awh7iwmm/public_html/groceryone.salepe.in/system/core/Loader.php on line 381
