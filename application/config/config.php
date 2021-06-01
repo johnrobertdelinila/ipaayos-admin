@@ -25,7 +25,7 @@ Checking
 |
 */
 
-$url = "192.168.254.147" . "/";
+$url = "192.168.1.248" . "/";
 $file_name = "ipaayos-admin" . "/";
 $config['base_url'] = "http://". $url . $file_name;
 // $config['base_url'] = "http://192.168.254.147/ipaayos-admin/";
