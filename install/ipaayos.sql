@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 28, 2021 at 12:11 AM
+-- Generation Time: Jun 08, 2021 at 10:40 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -62,14 +62,6 @@ CREATE TABLE `applied_job` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `applied_job`
---
-
-INSERT INTO `applied_job` (`aj_id`, `user_id`, `artist_id`, `job_id`, `price`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 5, 6, 'A7DMGX', '30', 'gfe', 2, '2021-02-12 02:16:23', '0000-00-00 00:00:00'),
-(33, 415, 417, 'HGUKW2', '200', 'magaling ako', 2, '2021-05-27 06:31:38', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -132,16 +124,6 @@ CREATE TABLE `artist` (
   `banner_image` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `artist`
---
-
-INSERT INTO `artist` (`id`, `user_id`, `name`, `category_id`, `description`, `about_us`, `skills`, `image`, `completion_rate`, `featured`, `created_at`, `updated_at`, `bio`, `longitude`, `latitude`, `location`, `live_lat`, `live_long`, `city`, `country`, `video_url`, `price`, `booking_flag`, `artist_commission_type`, `is_online`, `gender`, `preference`, `update_profile`, `banner_image`) VALUES
-(1, 1, 'Demo', 64, '', 'gyyyfttyyy', '', '', '0', 1, '1590234069', '1590234069', 'vhuu', 85.3308427, 23.4071056, 'Manila, Philipphines', 23.406091, 85.3321977, 'Ghh', 'Ghhy', '', 96, 0, 1, 0, 0, 0, 1, 'assets/images/1590234068.jpg'),
-(2, 6, 'Opo', 68, '', 'I\'m protective data entering  and productive person ????', '', '', '0', 1, '1591513397', '1618509625', 'Best drill', -3.4359729999999997, 55.378051, 'Manila, Philipphines', 24.3533718, 54.4970725, 'São Jose', 'India', '', 10, 0, 1, 1, 0, 0, 1, 'assets/images/1591513396.jpg'),
-(3, 7, 'Test', 1, '', 'test', '', '', '0', 1, '1591950736', '1591950736', 'test', 85.3304942, 23.4069863, 'Manila, Philipphines', 23.4072723, 85.3306851, 'Test', 'Trst', '', 25, 0, 1, 1, 0, 0, 1, 'assets/images/1591950736.jpg'),
-(47, 417, 'Harry James Natividad', 130, '', 'Johnny sins', '', '', '0', 0, '1622087664', '1622087664', 'Magaling', 120.35036880522966, 16.81459098965552, 'Pitpitac, , Luna,Ilocos Region,Philippines', 22.749753, 75.897542, 'Catbangen', 'Last Union', '', 200, 0, 1, 0, 0, 0, 1, '');
-
 -- --------------------------------------------------------
 
 --
@@ -179,13 +161,6 @@ CREATE TABLE `artist_booking` (
   `discount_amount` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `artist_booking`
---
-
-INSERT INTO `artist_booking` (`id`, `user_id`, `artist_id`, `booking_time`, `description`, `duration`, `service_id`, `start_time`, `category_price`, `booking_date`, `end_time`, `price`, `status`, `booking_flag`, `decline_by`, `time_zone`, `decline_reason`, `booking_timestamp`, `commission_type`, `booking_type`, `flat_type`, `created_at`, `updated_at`, `job_id`, `latitude`, `longitude`, `address`, `discount_amount`) VALUES
-(565, 415, 417, '08:16 am', '', '', '', '1622096192', '10', '2021-05-27', '1622097098', '200', 1, 4, '', 'GMT+08:00', '', '1622096160', 1, 2, 1, '1622096192', '1622096192', 'HGUKW2', 16.61398730230292, 120.32342433929443, '98, , San Fernando,Ilocos Region,Philippines', '');
-
 -- --------------------------------------------------------
 
 --
@@ -197,18 +172,6 @@ CREATE TABLE `artist_wallet` (
   `artist_id` bigint(20) NOT NULL,
   `amount` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `artist_wallet`
---
-
-INSERT INTO `artist_wallet` (`id`, `artist_id`, `amount`) VALUES
-(1, 6, '-143885.59'),
-(2, 38, '-13.3725'),
-(3, 52, '-532'),
-(4, 67, '-1300'),
-(5, 125, '-300'),
-(13, 417, '-60');
 
 -- --------------------------------------------------------
 
@@ -243,13 +206,6 @@ CREATE TABLE `booking_invoice` (
   `discount_amount` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `booking_invoice`
---
-
-INSERT INTO `booking_invoice` (`id`, `artist_id`, `invoice_id`, `user_id`, `booking_id`, `working_min`, `total_amount`, `artist_amount`, `tax`, `currency_type`, `coupon_code`, `payment_status`, `category_amount`, `final_amount`, `flag`, `created_at`, `payment_type`, `commission_type`, `flat_type`, `updated_at`, `referral_amount`, `referral_percentage`, `to_referral_user_id`, `discount_amount`) VALUES
-(165, 417, 'AJP7GK6WBENR', 415, 565, '15.1', '200', '180', '0', '?', '', '1', '20', '200', 1, '1622097098', 1, 1, 1, '1622097098', 0, 0, 0, '0');
-
 -- --------------------------------------------------------
 
 --
@@ -272,7 +228,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `parent_id`, `cat_name`, `image`, `price`, `created_at`, `updated_at`, `status`) VALUES
-(130, 0, 'Technician', 'fitur_h_20210527222546.jpg', '100', '1622076336', '1622147146', 1);
+(130, 0, 'Technician', 'fitur_h_20210527222546.jpg', '100', '1622076336', '1622147146', 1),
+(131, 0, 'Cellphone Technician', 'fitur_h_20210529150913.png', '10', '1622293753', '1622293753', 1);
 
 -- --------------------------------------------------------
 
@@ -292,16 +249,6 @@ CREATE TABLE `chat` (
   `chat_type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1 = text , 2 = image',
   `image` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `chat`
---
-
-INSERT INTO `chat` (`id`, `message`, `date`, `sender_name`, `user_id`, `artist_id`, `send_by`, `send_at`, `chat_type`, `image`) VALUES
-(712, 'hi', '1622062766', 'John Rober Delinila', 415, 6, '415', '1622062766', 1, ''),
-(713, 'hii', '1622095903', 'John Rober Delinila', 415, 417, '415', '1622095903', 1, ''),
-(714, 'scammer?', '1622096398', 'John Rober Delinila', 415, 417, '415', '1622096398', 1, ''),
-(715, 'hindi po', '1622097236', 'Harry James Natividad', 415, 417, '417', '1622097236', 1, '');
 
 -- --------------------------------------------------------
 
@@ -559,15 +506,6 @@ CREATE TABLE `notifications` (
   `created_at` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`id`, `user_id`, `title`, `type`, `msg`, `created_at`) VALUES
-(881, 0, 'Hi', 'All', 'asfasf', '1622092260'),
-(882, 415, 'Start Job', 'Individual', 'Harry James Natividad: start your job 2021-05-27 08:16 am', '1622096192'),
-(883, 415, 'End Appointment', 'Individual', 'Your booking end successfully.', '1622097099');
-
 -- --------------------------------------------------------
 
 --
@@ -671,13 +609,6 @@ CREATE TABLE `post_job` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `post_job`
---
-
-INSERT INTO `post_job` (`id`, `job_id`, `user_id`, `title`, `description`, `category_id`, `status`, `avtar`, `address`, `price`, `lati`, `longi`, `job_date`, `time`, `job_timestamp`, `created_at`, `updated_at`) VALUES
-(64, 'HGUKW2', 415, 'PA eut', 'Halla', 130, 2, 'assets/images/1622095239.jpg', '98, , San Fernando,Ilocos Region,Philippines', '100', '16.61398730230292', '120.32342433929443', '2021-05-28', '02:00 pm', '1622203200', '2021-05-27 06:39:14', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -764,18 +695,6 @@ CREATE TABLE `qualifications` (
   `updated_at` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `qualifications`
---
-
-INSERT INTO `qualifications` (`id`, `user_id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(2, 52, 'master', 'master', '1599029070', '1599029070'),
-(5, 125, 'BAMS', 'I am good physician and provide good services', '1601712007', '1601712007'),
-(6, 225, 'Misical Degree', 'Musical Degree', '1606150529', '1606150529'),
-(8, 269, 'Ha 10 anos no mercado', 'experiência em todas as marcas de veículos', '1608045209', '1608045209'),
-(9, 358, 'gshsja', 'gsbs', '1617609896', '1617609896'),
-(12, 417, 'eut', 'eut', '1622083286', '1622083286');
-
 -- --------------------------------------------------------
 
 --
@@ -792,14 +711,6 @@ CREATE TABLE `rating` (
   `status` int(2) NOT NULL DEFAULT 1,
   `booking_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `rating`
---
-
-INSERT INTO `rating` (`id`, `user_id`, `artist_id`, `rating`, `comment`, `created_at`, `status`, `booking_id`) VALUES
-(1, 5, 6, 5, 'test', 1622144575, 0, 1),
-(2, 5, 6, 5, 'test', 1622144607, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -1065,13 +976,6 @@ CREATE TABLE `ticket` (
   `craeted_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `ticket`
---
-
-INSERT INTO `ticket` (`id`, `user_id`, `reason`, `description`, `status`, `craeted_at`) VALUES
-(11, 417, 'Scammer customer', '', 0, 1622144575);
-
 -- --------------------------------------------------------
 
 --
@@ -1086,15 +990,6 @@ CREATE TABLE `ticket_comments` (
   `user_id` bigint(20) NOT NULL DEFAULT 0 COMMENT '0. Admin',
   `created_at` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ticket_comments`
---
-
-INSERT INTO `ticket_comments` (`id`, `ticket_id`, `comment`, `role`, `user_id`, `created_at`) VALUES
-(21, 11, 'hahahaha', 1, 417, 1622144575),
-(22, 11, 'Anong nangyari boss?', 0, 0, 1622144607),
-(23, 11, 'H', 1, 415, 1622146891);
 
 -- --------------------------------------------------------
 
@@ -1136,21 +1031,6 @@ CREATE TABLE `user` (
   `ifsc_code` text NOT NULL,
   `account_holder_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `name`, `email_id`, `password`, `image`, `address`, `office_address`, `live_lat`, `live_long`, `role`, `status`, `approval_status`, `created_at`, `mobile`, `referral_code`, `user_referral_code`, `gender`, `city`, `country`, `updated_at`, `device_type`, `device_id`, `device_token`, `latitude`, `longitude`, `i_card`, `country_code`, `mobile_no`, `bank_name`, `account_no`, `ifsc_code`, `account_holder_name`) VALUES
-(1, 'Demo', 'demo02@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', 0, 0, 1, 1, 1, '1590233727', '', 'KLW561', '', '', '', '', '1590233727', 'ANDROID', '12345', 'eexgL0rvznE:APA91bFz7ppf0gfI_vcnbllk44pdz38NQ1Aze1kmWaMTgM1Ww2aN7FLnuuPugGT-GdxvMushiak7fc-n_x-lBwgFb8Bmak9bf88oSPALCvhQwwsWcL7E8bx14pzaPlkQI-NZmdA_n958', 0, 0, '', '', '', '', '', '', ''),
-(2, 'Demo', 'demo@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', 0, 0, 2, 1, 1, '1590235201', '', 'RHC682', '', '', '', '', '1590235201', 'ANDROID', '12345', 'cFzG5WoW_7U:APA91bHOlpvJnkepbh_O9bxuRHp5fxXwgQf5UR3snCEQ_2bnwcBuXKfnHsp1Yp76hthz9CIn6R3I2xL0s-hDaqadtxAUaL9AWbqoqOKGbXClv9mhOPNgddUyWBAQ_IYBZG2YqVa8B5_H', 16.5143, 120.3551, '', '', '', '', '', '', ''),
-(3, 'Demo', 'demo82@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', 0, 0, 2, 1, 1, '1590579584', '', 'NRL440', '', '', '', '', '1590579584', 'ANDROID', '12345', 'ej2PKffxCnM:APA91bGU91ssig4o_RwY4uuZmT_CkMdywhtYZUSPVBBbb0i4ANm6Kdg7WGbydNjiDAOimHLT9bCduHD1eZvb9vl-pr4msPiPbBDld6yEvW9B7qjW-fJcHfwdq_mixD9QJ5zM2RRUBitF', 16.734, 120.3666, '', '', '', '', '', '', ''),
-(5, 'Jopher Reyes', 'jopher.reyes@lorma.edu', 'e10adc3949ba59abbe56e057f20f883e', 'assets/images/1604594493.jpg', 'address', '20, , San Fernando,Ilocos Region,Philippines', 0, 0, 2, 1, 1, '1591442074', '111185555', 'NOJ293', '', '1', 'Panchkula', 'egypt', '1591442074', 'ANDROID', '12345', 'f6BLrHKeTM2QtU4oIX_Na-:APA91bGsiTf0Gl6ZmpJvbc5YKTeGJwCCEhsYWCBRQo55k337NruVIj64fcSGxyGMG5q3fVTNdVzXdV83VN_6In-8kzJCpkoNYz91bzDgo2szqb-hLScZ2fU2uXshhBY6BLdjlD6Cqwcd', 16.5157, 120.4127, '', '', '', '', '', '', ''),
-(6, 'Opo', 'steve.jobs@lorma.edu', 'e10adc3949ba59abbe56e057f20f883e', 'assets/images/1606228716.jpg', '', '', 0, 0, 1, 1, 1, '1591442351', '12345678', 'DJQ023', '', '0', '', '', '1591442351', 'ANDROID', '12345', 'fNhZIQlNQ2E:APA91bF40ApdKFUWReZn4rVxYwq8J5SE2SB8Eq-2xREZEplzpb-SlchO33z7oqSNy1jZ4aJJq69YAgNn00ucpcqfxDWLzVKsVRg-9GINzSzIrXqxqXZaqh_mEV9dmder15wzSNgHY21w', 16.6159, 120.321, '', '', '', '', '', '', ''),
-(7, 'Test', 'bill.gates@lorma.edu', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', 0, 0, 1, 1, 1, '1591950626', '', 'MIE094', '', '', '', '', '1591950626', 'ANDROID', '12345', 'fcsSYdPSkZI:APA91bFzje00_wtcT1pgyos9W1tzCWT71LVz5sRJu3veqcDlK5NrgHTzkeTYhGUH7ex8NQjvEuyAtqLhVVz8Weewrn4dQPkqdvmyWUQQPV2yFfJfLFUq1JWDv16OsaWcO0tiqR5wU6A6', 0, 0, '', '', '', '', '', '', ''),
-(415, 'John Rober Delinila', 'johnrobert.delinila@lorma.edu', 'fcea920f7412b5da7be0cf42b8c93759', 'assets/images/1622076600.jpg', 'address', '20, , San Fernando,Ilocos Region,Philippines', 0, 0, 2, 1, 1, '1622044082', '09107009997', 'HLG109', '', '1', 'Catbangen ', 'Last Unions', '1622044082', 'ANDROID', '12345', 'cQ1VhojKQd-6TkzBuGj8Ed:APA91bGN_mBvP_QDxuMQO_3AhxSfH5QIE_86_OfTBJ_YooaH9KfweOusnvCKPDGFIh2biyUDsk8FfLU5gZbtUGogd2PrnPIgESPDEtMCj4T0Sxi7DanOvsoVKSvaAWRjs07iG0PtxVFR', 16.613621686124944, 120.32428465783596, '', '', '', '', '', '', ''),
-(416, 'hhhhhhbb', 'delinila.johnrobert@icloud.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', 0, 0, 2, 1, 1, '1622045054', '', 'LMS475', '', '', '', '', '1622045054', 'ANDROID', '12345', 'eEfn2X3eSy2GSDoElZlH5j:APA91bEBUZIIdvKt1oYDy4F9k4hGyPCUpJBd1kwyiteLeDRgrU3tbXCWIkV-SMzqI7-dvyk2sexFU-wGon2q0dmteqjZi7wVItKZ2Yhy96WxLXe3VV-kusdVUES1_DzzJeexHjfTkTUt', 0, 0, '', '', '', '', '', '', ''),
-(417, 'Harry James Natividad', 'janrickbersalona1@gmail.com ', 'e10adc3949ba59abbe56e057f20f883e', 'assets/images/1622076834.jpg', '', '', 0, 0, 1, 1, 1, '1622063593', '09107009997', 'FIC555', '', '2', '', '', '1622063593', 'ANDROID', '12345', 'cQ1VhojKQd-6TkzBuGj8Ed:APA91bGN_mBvP_QDxuMQO_3AhxSfH5QIE_86_OfTBJ_YooaH9KfweOusnvCKPDGFIh2biyUDsk8FfLU5gZbtUGogd2PrnPIgESPDEtMCj4T0Sxi7DanOvsoVKSvaAWRjs07iG0PtxVFR', 0, 0, '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1229,7 +1109,8 @@ CREATE TABLE `wallet_history` (
 INSERT INTO `wallet_history` (`id`, `user_id`, `description`, `amount`, `invoice_id`, `currency_type`, `type`, `status`, `order_id`, `created_at`) VALUES
 (157, 417, 'Booking invoice', -20, 'AJP7GK6WBENR', '₱', 2, 1, '1622097291', 1622097291),
 (158, 417, 'Booking invoice', 20, 'AJP7GK6WBENR', '₱', 2, 1, '1622097300', 1622097300),
-(159, 417, 'Booking invoice', 20, 'AJP7GK6WBENR', '₱', 2, 1, '1622097366', 1622097366);
+(159, 417, 'Booking invoice', 20, 'AJP7GK6WBENR', '₱', 2, 1, '1622097366', 1622097366),
+(160, 417, 'Booking invoice', 35, '8SUKNVUNSJN3', '₱', 2, 1, '1622293376', 1622293376);
 
 -- --------------------------------------------------------
 
@@ -1582,7 +1463,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `applied_job`
 --
 ALTER TABLE `applied_job`
-  MODIFY `aj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `aj_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `appointment`
@@ -1594,37 +1475,37 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `artist`
 --
 ALTER TABLE `artist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `artist_booking`
 --
 ALTER TABLE `artist_booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=566;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `artist_wallet`
 --
 ALTER TABLE `artist_wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `booking_invoice`
 --
 ALTER TABLE `booking_invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=716;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chat_new`
@@ -1690,7 +1571,7 @@ ALTER TABLE `mail_settings`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=884;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `packages`
@@ -1726,7 +1607,7 @@ ALTER TABLE `paypal_setting`
 -- AUTO_INCREMENT for table `post_job`
 --
 ALTER TABLE `post_job`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `privacy`
@@ -1750,13 +1631,13 @@ ALTER TABLE `product_basket`
 -- AUTO_INCREMENT for table `qualifications`
 --
 ALTER TABLE `qualifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `razorpayment`
@@ -1840,19 +1721,19 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ticket_comments`
 --
 ALTER TABLE `ticket_comments`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=418;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_session`
@@ -1876,7 +1757,7 @@ ALTER TABLE `user_warning`
 -- AUTO_INCREMENT for table `wallet_history`
 --
 ALTER TABLE `wallet_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `wallet_request`

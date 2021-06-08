@@ -4,8 +4,8 @@
       <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-header card-header-primary">
-                  <h4 class="card-title ">All Ticket</h4>
-                  <p class="card-category">List of All Ticket</p>
+                  <h4 class="card-title ">All Support</h4>
+                  <p class="card-category">List of All Support</p>
           </div>
           <div class="card-body">
             
@@ -14,7 +14,7 @@
               <thead>
                 <tr>
                   <th>
-                    Ticket Details
+                    Support Details
                   </th>
                 </tr>
               </thead>

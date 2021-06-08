@@ -18,9 +18,6 @@
                           <th>S. No.</th>
                           <th> Name</th>
                           <th> Email</th>
-                         <!-- <th>Referral Code</th> -->
-                         <!-- <th>Used Referral Code</th> -->
-                          <th> Wallet Amount</th>
                           <th> Profile Complete</th>
                           <th> Featured</th>
                           <th> Status</th>
@@ -52,9 +49,9 @@
                             <?php echo $artist->user_referral_code; ?>
                           </td> -->
 
-                          <td>
+                          <!-- <td>
                             <?php echo $artist->amount; ?>
-                          </td>
+                          </td> -->
 
                           <td>
                             <?php if($artist->is_artist==1) { ?>
