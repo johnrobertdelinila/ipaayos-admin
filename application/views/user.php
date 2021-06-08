@@ -18,7 +18,7 @@
                           <th>Email</th>
                          <!-- <th>Referral Code</th> -->
                         <!--  <th>Used Referral Code</th> -->
-                          <th>Wallet Amount</th>
+                          <!-- <th>Wallet Amount</th> -->
                           <th>
                             Status
                           </th>
@@ -46,7 +46,7 @@
                           <!-- <td><?php echo date('M d, Y h:i A', $user->created_at); ?></td> -->
                          <!-- <td><?php echo $user->referral_code; ?></td> ->
                          <!-- <td><?php echo $user->user_referral_code; ?></td> -->
-                          <td><?php echo $user->amount; ?></td>
+                          <!-- <td><?php echo $user->amount; ?></td> -->
                           <td>
                             <?php  if( $user->status){ ?><button class="btn active_user btn-success">Active</button><?php }else {  ?><button class="active_user btn-danger btn btn-sm">Deactive</button> <?php }?><input  type="text"  value="<?php echo $user->user_id;?>" hidden>
                           </td>
