@@ -46,7 +46,7 @@
                     </td>
                     <td>
                       <div class="btn-group">
-                        <a href="<?php echo base_url('Admin/ViewJobDetails') ?>?job_id=<?php echo $job_list->job_id; ?>" class="btn btn-teal">View Artist</a>
+                        <a href="<?php echo base_url('Admin/ViewJobDetails') ?>?job_id=<?php echo $job_list->job_id; ?>" class="btn btn-teal">View Service Provider</a>
                       </div>
                     </td>
                   </tr>
