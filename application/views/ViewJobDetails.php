@@ -14,7 +14,7 @@
               <thead>
                 <tr>
                   <th>S. No.</th>
-                  <th>Artist</th>
+                  <th>Service Provider</th>
                   <th>Email Id</th>
                   <th>Mobile No.</th>
                   <th>Applied Date</th>
